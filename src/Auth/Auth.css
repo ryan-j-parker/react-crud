@@ -28,3 +28,10 @@ flex-direction: row;
 p{
     margin: 10px;
 }
+
+.input-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

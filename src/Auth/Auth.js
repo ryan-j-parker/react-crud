@@ -10,11 +10,18 @@ function Auth() {
   const { user, setUser } = useContext(UserContext);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  
+
+  const submitAuth = async () => {
+    const userResp = await authUser(email, password, type);
+    setUser(userResp);
+  };
+
   if (user) {
-    <Redirect to="/posts" />;
+    return <Redirect to="/posts" />;
   }
 
+  
+  console.log(user);
   return (<div className='main-auth'>
 
 
@@ -24,23 +31,21 @@ function Auth() {
         <NavLink to="/auth/sign-up"><p>Sign Up</p></NavLink>
         <NavLink to="/auth/sign-in"><p>Sign In</p></NavLink>
       </div>
+      <form className='input-form'>
+        <label>Email</label>
 
-      <label>Email</label>
+        <input className='email-input' autoComplete="on" value={email} onChange={(e) => {
+          setEmail(e.target.value);
+        }}></input>
 
-      <input className='email-input' value={email} onChange={(e) => {
-        setEmail(e.target.value);
-      }}></input>
+        <label>Password</label>
 
-      <label>Password</label>
+        <input className='password-input' autoComplete="on" value={password} type="password" onChange={(e) => {
+          setPassword(e.target.value);
+        }}></input>
 
-      <input className='password-input' value={password} type="password" onChange={(e) => {
-        setPassword(e.target.value);
-      }}></input>
-
-      <button onClick={() => {
-        authUser(email, password, type);
-      }}>Submit</button>
-
+        <button onClick={submitAuth}>Submit</button>
+      </form>
     </div>
 
 
