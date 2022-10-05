@@ -7,7 +7,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      App
+      <Switch>
+        <Route path="/auth/:type" component={Auth} />
+
+      </Switch>
     </div>
   );
 }
