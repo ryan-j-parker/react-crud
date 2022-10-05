@@ -10,8 +10,3 @@ export function checkError({ data, error }) {
   }
   return data;
 }
-
-export async function getPosts() {
-  const response = await client.from('posts').select('*');
-  return checkError(response);
-}

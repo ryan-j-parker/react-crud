@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Header/Header';
+import Header from './components/Header/Header';
 import Auth from './components/Auth/Auth';
 import PostList from './components/PostList/PostList';
 
