@@ -20,7 +20,7 @@ function Header() {
       <div className="nav">
         {user && (
           <Link to="/create-post" className="nav-link">
-            <p>Add a post</p>
+            <p>Add post</p>
           </Link>
         )}
         {user && (
