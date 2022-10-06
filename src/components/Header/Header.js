@@ -14,12 +14,21 @@ function Header() {
 
   return (
     <header className="header">
-      <h2>Header</h2>
-      {user && (
-        <Link>
-          <p onClick={handleSignOut}>Logout</p>
-        </Link>
-      )}
+      <div>
+        <h2>devPals</h2>
+      </div>
+      <div className="nav">
+        {user && (
+          <Link to="/create-post" className="nav-link">
+            <p>Add a post</p>
+          </Link>
+        )}
+        {user && (
+          <Link className="nav-link">
+            <p onClick={handleSignOut}>Logout</p>
+          </Link>
+        )}
+      </div>
     </header>
   );
 }

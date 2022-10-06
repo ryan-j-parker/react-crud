@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
-import { createPost } from '../../services/posts';
-import './CreatePost.css';
+import './EditPost.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
+import { editPost } from '../../services/posts';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function CreatePost() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+export default function EditPost() {
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState(''); 
 
-  const makePost = async () => {
-    await createPost(title, description);
+  const editPostId = useParams();
+  const editHandler = async () => {
+    await editPost(newTitle, newDescription, editPostId.id);
+
   };
 
   return (
     <>
       <div className="container">
-        <div className="create-post">
+        <div className="edit-post">
           <Box
             className="box"
             sx={{
@@ -31,7 +34,7 @@ function CreatePost() {
               minHeight: 320,
             }}
           >
-            <h2 className="create">Create a post</h2>
+            <h2 className="create">Edit post</h2>
 
             <FormControl className="post-form">
               <TextField
@@ -41,7 +44,7 @@ function CreatePost() {
                 className="title"
                 margin="dense"
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setNewTitle(e.target.value);
                 }}
               ></TextField>
               <TextField
@@ -51,21 +54,13 @@ function CreatePost() {
                 className="desc"
                 margin="dense"
                 onChange={(e) => {
-                  setDescription(e.target.value);
+                  setNewDescription(e.target.value);
                 }}
               ></TextField>
               <div className="button-div">
-                <Link to="/posts">
-                  <Button
-                    variant="contained"
-                    mt={2}
-                    onClick={makePost}
-                    className="create-btn"
-                    startIcon={<SendIcon />}
-                  >
-                    Post it
-                  </Button>
-                </Link>
+                <Link to="/posts"><Button variant="contained" mt={2} className="create-btn" startIcon={<SendIcon />} onClick={editHandler}>
+                  Post it
+                </Button></Link>
               </div>
             </FormControl>
           </Box>
@@ -74,4 +69,3 @@ function CreatePost() {
     </>
   );
 }
-export default CreatePost;

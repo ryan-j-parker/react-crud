@@ -17,3 +17,9 @@ export async function editPost(title, description, id) {
     .match({ id });
   return checkError(response);
 }
+
+export async function getPostById(id) {
+  const response = await client.from('posts').match({ id }).single();
+
+  return checkError(response);
+}
