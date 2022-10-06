@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
+import InputAdornment from '@mui/material/InputAdornment';
 
 function Auth() {
   const { type } = useParams();
@@ -54,11 +55,16 @@ function Auth() {
             </NavLink>
           </div>
           <FormControl className="input-form">
-            <label>Email</label>
+            {/* <label>Email</label> */}
             <div className="input-icons">
               <PersonIcon className="icon"></PersonIcon>
               <TextField
                 className="email-input"
+                startAdornment={
+                  <InputAdornment>
+                    <PersonIcon></PersonIcon>
+                  </InputAdornment>
+                }
                 label="Email"
                 autoComplete="on"
                 margin="dense"
@@ -68,7 +74,7 @@ function Auth() {
                 }}
               ></TextField>
             </div>
-            <label>Password</label>
+            {/* <label>Password</label> */}
             <div className="input-icons">
               <LockIcon className="icon"></LockIcon>
               <TextField
