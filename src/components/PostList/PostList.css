@@ -17,3 +17,6 @@
   justify-content: center;
   display: flex;
 }
+.active {
+  text-decoration: none;
+}

@@ -1,8 +1,8 @@
 footer {
-  font-size: 2vh;
+  font-size: 1.5vh;
   background-color: rgb(43, 43, 43);
   color: white;
-  height: 5vh;
+  height: 2.5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
