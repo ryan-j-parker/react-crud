@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import './PostCard.css';
-import usePost from '../../hooks/usePost';
 
 export default function PostCard({ title, description, user_id }) {
   const { user } = useContext(UserContext);
-  // const { post } = usePost(id);
+
   const owner = user.id === user_id;
 
   return (

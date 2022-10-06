@@ -4,9 +4,27 @@
   color: white;
   height: 5vh;
   display: flex;
+  grid-template-columns: 4fr 1fr;
   justify-content: space-between;
   align-items: center;
   padding-left: 1.5vh;
   padding-right: 1.5vh;
   font-family: 'Anonymous Pro', monospace;
+  position: fixed;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 2vh;
+}
+
+a:active a:visited {
+  text-decoration: none;
+  color: white;
 }
