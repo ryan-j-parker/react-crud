@@ -3,12 +3,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 95vh;
 }
 
 .box {
   display: flex;
   justify-content: center;
-  margin-top: 180px;
   flex-direction: column;
 }
 
