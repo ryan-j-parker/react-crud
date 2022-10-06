@@ -13,6 +13,7 @@ function App() {
         <Route path="/auth/:type" component={Auth} />
         <Route path="/posts" component={PostList} />
         <Route path="/create-post" component={CreatePost} />
+        <Route path="/" component={Auth} />
       </Switch>
     </div>
   );

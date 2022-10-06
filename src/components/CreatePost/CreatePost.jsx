@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { createPost } from '../../services/posts';
 import './CreatePost.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -16,25 +20,33 @@ function CreatePost() {
     <>
       <div className="container">
         <div className="create-post">
-          <form>
-            <label>Title</label>
-            <input
-              className="title"
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-            ></input>
-            <label>Description</label>
-            <input
-              className="desc"
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-            ></input>
-            <button onClick={makePost} className="create-btn">
-              Create post
-            </button>
-          </form>
+          <Box component="span" sx={{ p: 2, m: -5, border: '1px dashed grey' }}>
+            <FormControl>
+              <TextField
+                id="outlined-basic"
+                label="Title"
+                variant="outlined"
+                className="title"
+                margin="dense"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              ></TextField>
+              <TextField
+                id="outlined-basic"
+                label="Description"
+                variant="outlined"
+                className="desc"
+                margin="dense"
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              ></TextField>
+              <Button variant="contained" onClick={makePost} className="create-btn">
+                Create post
+              </Button>
+            </FormControl>
+          </Box>
         </div>
       </div>
     </>

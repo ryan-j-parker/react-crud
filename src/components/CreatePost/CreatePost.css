@@ -1,5 +1,4 @@
-.container,
-form {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,17 +21,10 @@ label {
   font-weight: 600;
 }
 
-.title {
-  margin: 10px;
-}
-
-.desc {
-  margin: 10px;
-}
-
 .create-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 10px;
 }
