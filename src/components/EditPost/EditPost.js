@@ -5,18 +5,17 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
-import { editPost } from '../../services/posts';
+import { deletePost, editPost } from '../../services/posts';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function EditPost() {
   const [newTitle, setNewTitle] = useState('');
-  const [newDescription, setNewDescription] = useState(''); 
+  const [newDescription, setNewDescription] = useState('');
 
   const editPostId = useParams();
   const editHandler = async () => {
     await editPost(newTitle, newDescription, editPostId.id);
-
   };
 
   return (
@@ -58,9 +57,26 @@ export default function EditPost() {
                 }}
               ></TextField>
               <div className="button-div">
-                <Link to="/posts"><Button variant="contained" mt={2} className="create-btn" startIcon={<SendIcon />} onClick={editHandler}>
-                  Post it
-                </Button></Link>
+                <Link to="/posts">
+                  <Button
+                    variant="contained"
+                    mt={2}
+                    className="create-btn"
+                    startIcon={<SendIcon />}
+                    onClick={editHandler}
+                  >
+                    submit edit
+                  </Button>
+                  {/* <Button
+                    variant="contained"
+                    mt={2}
+                    className="create-btn"
+                    startIcon={<SendIcon />}
+                    onClick={deleteHandler}
+                  >
+                    Delete
+                  </Button> */}
+                </Link>
               </div>
             </FormControl>
           </Box>

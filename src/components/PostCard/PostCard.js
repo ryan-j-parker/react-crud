@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import { getPostById } from '../../services/posts';
+import { deletePost, getPostById } from '../../services/posts';
 import './PostCard.css';
 
 export default function PostCard({ title, description, user_id, id }) {
@@ -13,6 +13,10 @@ export default function PostCard({ title, description, user_id, id }) {
     return getPostById(id);
   };
 
+  const deleteHandler = (id) => {
+    return deletePost(id);
+  };
+
   return (
     <div className="post-card">
       <h3 className="title">{title}</h3>
@@ -22,6 +26,7 @@ export default function PostCard({ title, description, user_id, id }) {
           <button onClick={() => getPostDetail(id)}>edit</button>
         </Link>
       )}
+      {owner && <button onClick={() => deleteHandler(id)}>delete</button>}
     </div>
   );
 }
