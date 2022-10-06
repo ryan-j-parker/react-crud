@@ -11,10 +11,7 @@ export async function createPost(title, description) {
 }
 
 export async function editPost(title, description, id) {
-  const response = await client
-    .from('')
-    .update({ title: title, description: description })
-    .match({ id });
+  const response = await client.from('posts').update({ title: title, description: description }).match({ id });
   return checkError(response);
 }
 
