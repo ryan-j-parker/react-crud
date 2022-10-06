@@ -6,13 +6,13 @@
 
   font-family: 'Anonymous Pro', monospace;
   background-color: aquamarine;
-  height: 95vh;
+  height: 90vh;
 }
 
 .box {
   display: flex;
   justify-content: center;
-  margin-top: 180px;
+
   flex-direction: column;
   font-family: 'Anonymous Pro', monospace;
 }

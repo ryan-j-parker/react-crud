@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
-import { createPost } from '../../services/posts';
-import './CreatePost.css';
+import React from 'react';
+import './EditPost.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
 
-function CreatePost() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-
-  const makePost = async () => {
-    await createPost(title, description);
-  };
-
+export default function EditPost() {
   return (
     <>
       <div className="container">
-        <div className="create-post">
+        <div className="edit-post">
           <Box
             className="box"
             sx={{
@@ -30,7 +22,7 @@ function CreatePost() {
               minHeight: 320,
             }}
           >
-            <h2 className="create">Create a post</h2>
+            <h2 className="create">Edit post</h2>
 
             <FormControl className="post-form">
               <TextField
@@ -39,9 +31,6 @@ function CreatePost() {
                 variant="outlined"
                 className="title"
                 margin="dense"
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
               ></TextField>
               <TextField
                 id="outlined-basic"
@@ -49,18 +38,9 @@ function CreatePost() {
                 variant="outlined"
                 className="desc"
                 margin="dense"
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
               ></TextField>
               <div className="button-div">
-                <Button
-                  variant="contained"
-                  mt={2}
-                  onClick={makePost}
-                  className="create-btn"
-                  startIcon={<SendIcon />}
-                >
+                <Button variant="contained" mt={2} className="create-btn" startIcon={<SendIcon />}>
                   Post it
                 </Button>
               </div>
@@ -71,5 +51,3 @@ function CreatePost() {
     </>
   );
 }
-
-export default CreatePost;

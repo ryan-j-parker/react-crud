@@ -16,6 +16,11 @@ function Header() {
     <header className="header">
       <h2>Header</h2>
       {user && (
+        <Link to="/create-post">
+          <p>Add a post</p>
+        </Link>
+      )}
+      {user && (
         <Link>
           <p onClick={handleSignOut}>Logout</p>
         </Link>

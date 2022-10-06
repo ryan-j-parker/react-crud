@@ -12,7 +12,7 @@
   color: #64b2cd;
 }
 
-.create-post {
+.edit-post {
   display: flex;
   flex-direction: column;
 }
