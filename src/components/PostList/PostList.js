@@ -23,15 +23,17 @@ export default function PostList() {
     );
 
   return (
-    <div className="main-posts">
-      {posts.map((post) => (
-        <PostCard
-          key={post.id}
-          title={post.title}
-          description={post.description}
-          user_id={post.user_id}
-        />
-      ))}
+    <div className="posts-body">
+      <div className="main-posts">
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            title={post.title}
+            description={post.description}
+            user_id={post.user_id}
+          />
+        ))}
+      </div>
     </div>
   );
 }

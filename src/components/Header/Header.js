@@ -15,7 +15,7 @@ function Header() {
   return (
     <header className="header">
       <div>
-        <h2>devPals</h2>
+        <h2>devPal</h2>
       </div>
       <div className="nav">
         {user && (
