@@ -1,0 +1,38 @@
+.container,
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  width: 25vw;
+  height: 40vh;
+  border-radius: 10px;
+}
+.create-post {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+}
+
+.title {
+  margin: 10px;
+}
+
+.desc {
+  margin: 10px;
+}
+
+.create-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

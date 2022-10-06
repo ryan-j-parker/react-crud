@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Auth from './components/Auth/Auth';
 import PostList from './components/PostList/PostList';
+import CreatePost from './components/CreatePost/CreatePost';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/posts" component={PostList} />
+        <Route path="/create-post" component={CreatePost} />
       </Switch>
     </div>
   );
