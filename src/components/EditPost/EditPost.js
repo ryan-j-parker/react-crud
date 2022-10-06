@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EditPost.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
+import { editPost } from '../../services/posts';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function EditPost() {
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState(''); 
+
+  const editPostId = useParams();
+  const editHandler = async () => {
+    await editPost(newTitle, newDescription, editPostId.id);
+
+  };
+
   return (
     <>
       <div className="container">
@@ -31,6 +43,9 @@ export default function EditPost() {
                 variant="outlined"
                 className="title"
                 margin="dense"
+                onChange={(e) => {
+                  setNewTitle(e.target.value);
+                }}
               ></TextField>
               <TextField
                 id="outlined-basic"
@@ -38,11 +53,14 @@ export default function EditPost() {
                 variant="outlined"
                 className="desc"
                 margin="dense"
+                onChange={(e) => {
+                  setNewDescription(e.target.value);
+                }}
               ></TextField>
               <div className="button-div">
-                <Button variant="contained" mt={2} className="create-btn" startIcon={<SendIcon />}>
+                <Link to="/posts"><Button variant="contained" mt={2} className="create-btn" startIcon={<SendIcon />} onClick={editHandler}>
                   Post it
-                </Button>
+                </Button></Link>
               </div>
             </FormControl>
           </Box>

@@ -15,7 +15,7 @@ function App() {
         <Route path="/auth/:type" component={Auth} />
         <Route path="/posts" component={PostList} />
         <Route path="/create-post" component={CreatePost} />
-        <Route path="/edit-post" component={EditPost} />
+        <Route path="/edit-post/:id" component={EditPost} />
         <Route path="/" component={Auth} />
       </Switch>
       <Footer />

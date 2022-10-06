@@ -30,6 +30,7 @@ export default function PostList() {
           title={post.title}
           description={post.description}
           user_id={post.user_id}
+          id={post.id}
         />
       ))}
     </div>
