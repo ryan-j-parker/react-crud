@@ -3,9 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-image: url('../../../public/digital.jpg');
 }
 
-.box {
+.containing-box {
   display: flex;
   justify-content: center;
   margin-top: 180px;
