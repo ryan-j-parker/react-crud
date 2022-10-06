@@ -1,11 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 import usePosts from '../../hooks/usePosts';
 import PostCard from '../PostCard/PostCard';
 import './PostList.css';
 
 export default function PostList() {
   const { posts } = usePosts();
-  console.log('postssss', posts);
+  const { user } = useContext(UserContext);
+
+  if (!user) {
+    return <Redirect to="/auth/sign-in" />;
+  }
 
   return (
     <div className="main-posts">
