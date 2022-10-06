@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
+import { Link } from 'react-router-dom';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -56,15 +57,17 @@ function CreatePost() {
                 }}
               ></TextField>
               <div className="button-div">
-                <Button
-                  variant="contained"
-                  mt={2}
-                  onClick={makePost}
-                  className="create-btn"
-                  startIcon={<SendIcon />}
-                >
-                  Post it
-                </Button>
+                <Link to="/posts">
+                  <Button
+                    variant="contained"
+                    mt={2}
+                    onClick={makePost}
+                    className="create-btn"
+                    startIcon={<SendIcon />}
+                  >
+                    Post it
+                  </Button>
+                </Link>
               </div>
             </FormControl>
           </Box>
@@ -73,5 +76,4 @@ function CreatePost() {
     </>
   );
 }
-
 export default CreatePost;

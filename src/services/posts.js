@@ -9,3 +9,11 @@ export async function createPost(title, description) {
   const response = await client.from('posts').insert({ title: title, description: description });
   return checkError(response);
 }
+
+export async function editPost(title, description, id) {
+  const response = await client
+    .from('posts')
+    .update({ title: title, description: description })
+    .match({ id });
+  return checkError(response);
+}
