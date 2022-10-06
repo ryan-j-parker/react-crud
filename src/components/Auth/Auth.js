@@ -33,22 +33,22 @@ function Auth() {
       <Box
         className="box"
         sx={{
-          bgcolor: '#fbf2d5',
-          boxShadow: 1,
+          bgcolor: '#47B5FF',
+          boxShadow: 4,
           borderRadius: 2,
           pt: 2,
-          minWidth: 300,
+          minWidth: 350,
           minHeight: 400,
         }}
       >
         <div className="links-container">
           <NavLink className="nav" to="/auth/sign-up" underline="never">
-            <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+            <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
               Sign Up
             </Button>
           </NavLink>
           <NavLink className="nav" to="/auth/sign-in" underline="never">
-            <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+            <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
               Sign In
             </Button>
           </NavLink>
