@@ -3,10 +3,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 95vh;
 }
 
-.containing-box {
+.box {
   display: flex;
   justify-content: center;
   margin-top: 180px;
@@ -75,8 +74,8 @@ p {
 .password-input {
   background-color: white;
   margin-top: 10px;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
   margin-top: 15px;
 }
