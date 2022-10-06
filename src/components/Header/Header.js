@@ -24,7 +24,7 @@ function Header() {
           </Link>
         )}
         {user && (
-          <Link className="nav-link">
+          <Link to="/auth/sign-in" className="nav-link">
             <p onClick={handleSignOut}>Logout</p>
           </Link>
         )}

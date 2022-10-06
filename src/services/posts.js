@@ -12,7 +12,7 @@ export async function createPost(title, description) {
 
 export async function editPost(title, description, id) {
   const response = await client
-    .from('')
+    .from('posts')
     .update({ title: title, description: description })
     .match({ id });
   return checkError(response);
@@ -20,6 +20,12 @@ export async function editPost(title, description, id) {
 
 export async function getPostById(id) {
   const response = await client.from('posts').match({ id }).single();
+
+  return checkError(response);
+}
+
+export async function deletePost(id) {
+  const response = await client.from('posts').delete().match({ id });
 
   return checkError(response);
 }
