@@ -5,8 +5,8 @@
   flex-direction: column;
 
   font-family: 'Anonymous Pro', monospace;
-  background-color: aquamarine;
-  height: 90vh;
+  background-color: rgb(223, 246, 255);
+  height: 97.5vh;
 }
 
 .box {
@@ -15,6 +15,9 @@
 
   flex-direction: column;
   font-family: 'Anonymous Pro', monospace;
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
 }
 
 .container-input {
