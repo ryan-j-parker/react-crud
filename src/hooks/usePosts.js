@@ -10,14 +10,15 @@ function usePosts() {
 
   useEffect(() => {
     const loadData = async () => {
+      setLoading(true);
       try {
         const data = await getPosts();
 
         setPosts(data);
         setLoading(false);
       } catch (e) {
-        setLoading(false);
         setError(e.message);
+        setLoading(false);
       }
     };
     loadData();
