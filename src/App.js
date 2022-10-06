@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import Auth from './components/Auth/Auth';
 import PostList from './components/PostList/PostList';
 import CreatePost from './components/CreatePost/CreatePost';
+import Footer from './components/Footer/Footer';
+import EditPost from './components/EditPost/EditPost';
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
         <Route path="/auth/:type" component={Auth} />
         <Route path="/posts" component={PostList} />
         <Route path="/create-post" component={CreatePost} />
+        <Route path="/edit-post" component={EditPost} />
         <Route path="/" component={Auth} />
       </Switch>
+      <Footer />
     </div>
   );
 }

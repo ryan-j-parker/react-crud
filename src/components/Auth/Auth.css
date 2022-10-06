@@ -3,15 +3,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 95vh;
+
+  font-family: 'Anonymous Pro', monospace;
+  background-color: aquamarine;
+  height: 90vh;
 }
 
 .box {
   display: flex;
   justify-content: center;
+
   flex-direction: column;
+  font-family: 'Anonymous Pro', monospace;
 }
 
+.container-input {
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: 'Anonymous Pro', monospace;
+}
 .links-container {
   display: flex;
   flex-direction: row;
@@ -19,6 +32,7 @@
   margin: 30px;
   margin-top: -20px;
   align-items: center;
+  font-family: 'Anonymous Pro', monospace;
 }
 
 .email-input {
@@ -57,6 +71,7 @@ p {
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 10px;
+  font-family: 'Anonymous Pro', monospace;
 }
 
 .icon {
