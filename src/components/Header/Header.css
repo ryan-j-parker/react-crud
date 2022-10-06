@@ -1,7 +1,7 @@
 .header {
   font-size: 2vh;
   background-color: rgb(6, 40, 61);
-  color: white;
+  color: rgb(223, 246, 255);
   height: 5vh;
   display: flex;
   grid-template-columns: 4fr 1fr;
@@ -12,10 +12,15 @@
   font-family: 'Anonymous Pro', monospace;
   position: fixed;
   width: 100%;
+  text-shadow: 2px 2px 2px rgb(71, 181, 255);
+  box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
+  -webkit-box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
+  -moz-box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
 }
 
 .nav {
   display: flex;
+  font-size: 1.7vh;
 }
 
 .nav-link {

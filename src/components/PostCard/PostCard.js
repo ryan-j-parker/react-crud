@@ -19,7 +19,7 @@ export default function PostCard({ title, description, user_id, id }) {
 
   return (
     <div className="post-card">
-      <h3 className="title">{title}</h3>
+      <h3 className="post-title">{title}</h3>
       <p className="description">{description}</p>
       {owner && (
         <Link to={`/edit-post/${id}`}>
