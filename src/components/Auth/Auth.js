@@ -30,73 +30,69 @@ function Auth() {
 
   return (
     <div className="main-auth">
-      <div className="container-input">
-        <Box
-          className="box"
-          sx={{
-            bgcolor: '#fbf2d5',
-            boxShadow: 1,
-            borderRadius: 2,
-            pt: 2,
-            minWidth: 300,
-            minHeight: 400,
-          }}
-        >
-          <div className="links-container">
-            <NavLink className="nav" to="/auth/sign-up" underline="never">
-              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
-                Sign Up
-              </Button>
-            </NavLink>
-            <NavLink className="nav" to="/auth/sign-in" underline="never">
-              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
-                Sign In
-              </Button>
-            </NavLink>
+      <Box
+        className="box"
+        sx={{
+          bgcolor: '#fbf2d5',
+          boxShadow: 1,
+          borderRadius: 2,
+          pt: 2,
+          minWidth: 300,
+          minHeight: 400,
+        }}
+      >
+        <div className="links-container">
+          <NavLink className="nav" to="/auth/sign-up" underline="never">
+            <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+              Sign Up
+            </Button>
+          </NavLink>
+          <NavLink className="nav" to="/auth/sign-in" underline="never">
+            <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+              Sign In
+            </Button>
+          </NavLink>
+        </div>
+        <FormControl className="input-form">
+          <div className="input-icons">
+            <PersonIcon className="icon"></PersonIcon>
+            <TextField
+              className="email-input"
+              startAdornment={
+                <InputAdornment>
+                  <PersonIcon></PersonIcon>
+                </InputAdornment>
+              }
+              label="Email"
+              autoComplete="on"
+              margin="dense"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            ></TextField>
           </div>
-          <FormControl className="input-form">
-            {/* <label>Email</label> */}
-            <div className="input-icons">
-              <PersonIcon className="icon"></PersonIcon>
-              <TextField
-                className="email-input"
-                startAdornment={
-                  <InputAdornment>
-                    <PersonIcon></PersonIcon>
-                  </InputAdornment>
-                }
-                label="Email"
-                autoComplete="on"
-                margin="dense"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              ></TextField>
-            </div>
-            {/* <label>Password</label> */}
-            <div className="input-icons">
-              <LockIcon className="icon"></LockIcon>
-              <TextField
-                className="password-input"
-                label="Password"
-                autoComplete="on"
-                margin="dense"
-                value={password}
-                type="password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              ></TextField>
-            </div>
-            <Box className="button-box">
-              <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
-                Submit
-              </Button>
-            </Box>
-          </FormControl>
-        </Box>
-      </div>
+          <div className="input-icons">
+            <LockIcon className="icon"></LockIcon>
+            <TextField
+              className="password-input"
+              label="Password"
+              autoComplete="on"
+              margin="dense"
+              value={password}
+              type="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            ></TextField>
+          </div>
+          <Box className="button-box">
+            <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
+              Submit
+            </Button>
+          </Box>
+        </FormControl>
+      </Box>
     </div>
   );
 }

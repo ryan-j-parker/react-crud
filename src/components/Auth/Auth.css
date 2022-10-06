@@ -12,13 +12,6 @@
   flex-direction: column;
 }
 
-.container-input {
-  border: 2px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-}
 .links-container {
   display: flex;
   flex-direction: row;
