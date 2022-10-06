@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   font-family: 'Anonymous Pro', monospace;
   background-color: aquamarine;
+  height: 95vh;
 }
 
 .box {
