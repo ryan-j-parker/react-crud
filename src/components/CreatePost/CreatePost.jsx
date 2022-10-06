@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
+import SendIcon from '@mui/icons-material/Send';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -20,8 +21,20 @@ function CreatePost() {
     <>
       <div className="container">
         <div className="create-post">
-          <Box component="span" sx={{ p: 2, m: -5, border: '1px dashed grey' }}>
-            <FormControl>
+          <Box
+            className="box"
+            sx={{
+              bgcolor: '#fbf2d5',
+              boxShadow: 1,
+              borderRadius: 2,
+              pt: 2,
+              minWidth: 300,
+              minHeight: 320,
+            }}
+          >
+            <h2 className="create">Create a post</h2>
+
+            <FormControl className="post-form">
               <TextField
                 id="outlined-basic"
                 label="Title"
@@ -42,9 +55,17 @@ function CreatePost() {
                   setDescription(e.target.value);
                 }}
               ></TextField>
-              <Button variant="contained" onClick={makePost} className="create-btn">
-                Create post
-              </Button>
+              <div className="button-div">
+                <Button
+                  variant="contained"
+                  mt={2}
+                  onClick={makePost}
+                  className="create-btn"
+                  startIcon={<SendIcon />}
+                >
+                  Post it
+                </Button>
+              </div>
             </FormControl>
           </Box>
         </div>
