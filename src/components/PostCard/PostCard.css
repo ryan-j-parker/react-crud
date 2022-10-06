@@ -5,4 +5,7 @@
   height: 20vh;
   width: 20vw;
   margin: 5px;
+  min-width: 175px;
+  max-width: 340px;
+  padding: 1vh;
 }
