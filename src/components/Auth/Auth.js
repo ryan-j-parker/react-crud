@@ -33,22 +33,22 @@ function Auth() {
         <Box
           className="box"
           sx={{
-            bgcolor: 'background.paper',
+            bgcolor: '#fbf2d5',
             boxShadow: 1,
             borderRadius: 2,
-            pt: 0,
+            pt: 2,
             minWidth: 300,
             minHeight: 400,
           }}
         >
           <div className="links-container">
             <NavLink className="nav" to="/auth/sign-up" underline="never">
-              <Button variant="contained" color="secondary" margin="dense">
+              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
                 Sign Up
               </Button>
             </NavLink>
             <NavLink className="nav" to="/auth/sign-in" underline="never">
-              <Button variant="contained" color="secondary" margin="dense">
+              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
                 Sign In
               </Button>
             </NavLink>
@@ -59,7 +59,9 @@ function Auth() {
               <PersonIcon className="icon"></PersonIcon>
               <TextField
                 className="email-input"
+                label="Email"
                 autoComplete="on"
+                margin="dense"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -71,7 +73,9 @@ function Auth() {
               <LockIcon className="icon"></LockIcon>
               <TextField
                 className="password-input"
+                label="Password"
                 autoComplete="on"
+                margin="dense"
                 value={password}
                 type="password"
                 onChange={(e) => {
