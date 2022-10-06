@@ -18,6 +18,11 @@ export default function EditPost() {
     await editPost(newTitle, newDescription, editPostId.id);
   };
 
+  const deletePostById = useParams();
+  const deleteHandler = async () => {
+    await deletePost(deletePostById.id);
+  };
+
   return (
     <>
       <div className="container">
@@ -67,7 +72,7 @@ export default function EditPost() {
                   >
                     submit edit
                   </Button>
-                  {/* <Button
+                  <Button
                     variant="contained"
                     mt={2}
                     className="create-btn"
@@ -75,7 +80,7 @@ export default function EditPost() {
                     onClick={deleteHandler}
                   >
                     Delete
-                  </Button> */}
+                  </Button>
                 </Link>
               </div>
             </FormControl>
