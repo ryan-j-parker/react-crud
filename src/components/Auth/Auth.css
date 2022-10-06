@@ -45,7 +45,7 @@ p {
 }
 
 .button-box {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .nav {
@@ -62,9 +62,21 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
   margin-right: 10px;
 }
 
 .icon {
   padding-right: 10px;
+}
+
+.email-input,
+.password-input {
+  background-color: white;
+  margin-top: 10px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin-top: 15px;
 }
