@@ -1,7 +1,7 @@
 .header {
   font-size: 2vh;
-  background-color: rgb(6, 40, 61);
-  color: rgb(223, 246, 255);
+  background-color: rgb(223, 246, 255);
+  color: rgb(6, 40, 61);
   height: 5vh;
   display: flex;
   grid-template-columns: 4fr 1fr;
@@ -26,7 +26,7 @@
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: rgb(6, 40, 61);
   margin-right: 2vh;
 }
 

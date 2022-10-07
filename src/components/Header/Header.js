@@ -16,14 +16,16 @@ function Header() {
   return (
     <header className="header">
       <div>
-        <h2>devPal</h2>
+        <Link to="/posts">
+          <h2>devPal</h2>
+        </Link>
       </div>
       <div className="nav">
-        {user && (
+        {/* {user && (
           <Link to="/posts" className="nav-link">
             <HomeIcon className="home" />
           </Link>
-        )}
+        )} */}
         {user && (
           <Link to="/create-post" className="nav-link">
             <p>Add post</p>
