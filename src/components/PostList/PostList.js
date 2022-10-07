@@ -6,6 +6,7 @@ import usePosts from '../../hooks/usePosts';
 import PostCard from '../PostCard/PostCard';
 import './PostList.css';
 import CircularProgress from '@mui/material/CircularProgress';
+import Particle from '../Particle/Particle';
 
 export default function PostList() {
   const { posts, loading } = usePosts();
@@ -23,10 +24,23 @@ export default function PostList() {
     );
 
   return (
-    <div className="main-posts">
-      {posts.map((post) => (
-        <PostCard key={post.id} title={post.title} description={post.description} />
-      ))}
-    </div>
+    <>
+      <div className="particle-bg">
+        <Particle />
+      </div>
+      <div className="posts-body">
+        <div className="main-posts">
+          {posts.map((post) => (
+            <PostCard
+              key={post.id}
+              title={post.title}
+              description={post.description}
+              user_id={post.user_id}
+              id={post.id}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }

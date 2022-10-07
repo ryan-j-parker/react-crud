@@ -1,0 +1,17 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  font-size: 1.5vh;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  height: 2.5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5vh;
+  padding-right: 1.5vh;
+  font-family: 'Anonymous Pro', monospace;
+  opacity: 1;
+  z-index: 9998;
+}

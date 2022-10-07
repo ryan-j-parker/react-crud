@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import InputAdornment from '@mui/material/InputAdornment';
+import Particle from '../Particle/Particle';
 
 function Auth() {
   const { type } = useParams();
@@ -29,33 +30,35 @@ function Auth() {
   }
 
   return (
-    <div className="main-auth">
-      <div className="container-input">
+    <div className="auth-body">
+      <div className="main-auth">
+        <Particle style={{ zIndex: 1 }} />
         <Box
           className="box"
           sx={{
-            bgcolor: '#fbf2d5',
-            boxShadow: 1,
+            bgcolor: '#DFF6FF',
+            boxShadow: 4,
             borderRadius: 2,
             pt: 2,
-            minWidth: 300,
+            minWidth: 350,
             minHeight: 400,
+            opacity: 1,
+            zIndex: 9999,
           }}
         >
           <div className="links-container">
             <NavLink className="nav" to="/auth/sign-up" underline="never">
-              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+              <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
                 Sign Up
               </Button>
             </NavLink>
             <NavLink className="nav" to="/auth/sign-in" underline="never">
-              <Button variant="contained" backgroundColor="#64b2cd" margin="dense">
+              <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
                 Sign In
               </Button>
             </NavLink>
           </div>
           <FormControl className="input-form">
-            {/* <label>Email</label> */}
             <div className="input-icons">
               <PersonIcon className="icon"></PersonIcon>
               <TextField
@@ -74,7 +77,6 @@ function Auth() {
                 }}
               ></TextField>
             </div>
-            {/* <label>Password</label> */}
             <div className="input-icons">
               <LockIcon className="icon"></LockIcon>
               <TextField

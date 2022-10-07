@@ -8,14 +8,14 @@
 }
 
 .create {
-  margin-top: -30px;
-  color: #73d6f7;
+  /* margin-top: -30px; */
+  color: #64b2cd;
+  margin-bottom: 30px;
 }
 
-.create-post {
+.edit-post {
   display: flex;
   flex-direction: column;
-  z-index: 3;
 }
 
 label {
@@ -23,10 +23,9 @@ label {
 }
 
 .create-btn {
-  margin-top: 10px;
+  margin-top: 10px 25px;
 }
 
-.title,
 .desc {
   width: 280px;
   background-color: white;
@@ -39,5 +38,13 @@ label {
 }
 
 .button-div {
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+#del-btn {
+  margin-right: 35px;
+}
+
+.title-field {
+  margin-bottom: 20px;
 }

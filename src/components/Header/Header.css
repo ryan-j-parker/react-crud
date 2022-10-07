@@ -1,11 +1,40 @@
 .header {
   font-size: 2vh;
-  background-color: rgb(43, 43, 43);
-  color: white;
+  background-color: rgb(223, 246, 255);
+  color: rgb(6, 40, 61);
   height: 5vh;
   display: flex;
+  grid-template-columns: 4fr 1fr;
   justify-content: space-between;
   align-items: center;
   padding-left: 1.5vh;
   padding-right: 1.5vh;
+  font-family: 'Anonymous Pro', monospace;
+  position: fixed;
+  width: 100%;
+  text-shadow: 2px 2px 2px rgb(71, 181, 255);
+  box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
+  -webkit-box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
+  -moz-box-shadow: 2px 4px 8px -2px rgba(6, 40, 61, 0.7);
+  z-index: 9999;
+}
+
+.nav {
+  display: flex;
+  font-size: 1.7vh;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgb(6, 40, 61);
+  margin-right: 2vh;
+}
+
+a:active a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.home {
+  margin-top: 5px;
 }
