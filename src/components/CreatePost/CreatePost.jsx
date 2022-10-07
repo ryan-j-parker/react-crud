@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
 import { Link } from 'react-router-dom';
+import Particle from '../Particle/Particle';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -19,11 +20,12 @@ function CreatePost() {
   return (
     <>
       <div className="container">
+        <Particle />
         <div className="create-post">
           <Box
             className="box"
             sx={{
-              bgcolor: '#fbf2d5',
+              bgcolor: '#256D85',
               boxShadow: 1,
               borderRadius: 2,
               pt: 2,

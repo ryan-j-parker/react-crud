@@ -35,7 +35,7 @@ export default function EditPost() {
           <Box
             className="box"
             sx={{
-              bgcolor: '#fbf2d5',
+              bgcolor: '#256D85',
               boxShadow: 1,
               borderRadius: 2,
               pt: 2,
