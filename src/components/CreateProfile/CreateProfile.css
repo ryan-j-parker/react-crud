@@ -1,4 +1,4 @@
-.main-auth {
+.main-profile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   -moz-box-shadow: 2px 0px 8px -2px rgba(6, 40, 61, 0.66);
 }
 
-.auth-body {
+.profile-body {
   display: flex;
   justify-content: center;
   background-color: rgb(223, 246, 255);
@@ -24,11 +24,12 @@
 .box {
   display: flex;
   justify-content: center;
-  height: 32vh;
+  height: 42vh;
   width: 25vh;
   border-radius: 10px;
   background-color: rgb(223, 246, 255);
   flex-direction: column;
+  padding: 2vh;
   font-family: 'Anonymous Pro', monospace;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
@@ -44,14 +45,32 @@
   font-family: 'Anonymous Pro', monospace;
 }
 
-.email-input {
+/* .photo-input {
+  color: rgba(0, 0, 0, 0);
+  margin-left: 12.5vh;
+} */
+
+.first-name-input {
   margin: 20px;
   border-radius: 10px;
 }
 
-.password-input {
+.last-name-input {
   margin: 20px;
   border-radius: 10px;
+}
+
+.username-input {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
 }
 
 p {
@@ -89,8 +108,9 @@ p {
   padding-right: 10px;
 }
 
-.email-input,
-.password-input {
+.first-name-input,
+.last-name-input,
+.username-input {
   background-color: white;
   margin-top: 10px;
   display: flex;

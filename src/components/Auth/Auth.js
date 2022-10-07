@@ -18,6 +18,7 @@ function Auth() {
   const { user, setUser } = useContext(UserContext);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const signInQ = "Don't have an account?";
 
   const submitAuth = async () => {
     const userResp = await authUser(email, password, type);
@@ -46,18 +47,6 @@ function Auth() {
             zIndex: 9999,
           }}
         >
-          <div className="links-container">
-            <NavLink className="nav" to="/auth/sign-up" underline="never">
-              <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
-                Sign Up
-              </Button>
-            </NavLink>
-            <NavLink className="nav" to="/auth/sign-in" underline="never">
-              <Button variant="contained" backgroundColor="#47B5FF" margin="dense">
-                Sign In
-              </Button>
-            </NavLink>
-          </div>
           <FormControl className="input-form">
             <div className="input-icons">
               <PersonIcon className="icon"></PersonIcon>
@@ -92,9 +81,17 @@ function Auth() {
               ></TextField>
             </div>
             <Box className="button-box">
-              <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
-                Submit
-              </Button>
+              <NavLink to="/auth/sign-in">
+                <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
+                  Sign in
+                </Button>
+              </NavLink>
+              <div className="toggle-sign-up">
+                <p>{signInQ}</p>
+                <NavLink to="/auth/sign-up">
+                  <h3>Sign up</h3>
+                </NavLink>
+              </div>
             </Box>
           </FormControl>
         </Box>
