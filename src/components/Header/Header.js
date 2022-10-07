@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import './Header.css';
 import { signOut } from '../../services/auth';
-import HomeIcon from '@mui/icons-material/Home';
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -21,11 +20,6 @@ function Header() {
         </Link>
       </div>
       <div className="nav">
-        {/* {user && (
-          <Link to="/posts" className="nav-link">
-            <HomeIcon className="home" />
-          </Link>
-        )} */}
         {user && (
           <Link to="/create-post" className="nav-link">
             <p>Add post</p>
