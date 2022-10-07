@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { deletePost, getPostById } from '../../services/posts';
 import './PostCard.css';
+import usePost from '../../hooks/usePost';
 
 export default function PostCard({ title, description, user_id, id }) {
   const { user } = useContext(UserContext);
+  const { post } = usePost(id);
+  console.log('post!!', post);
 
   const owner = user.id === user_id;
-
-  const getPostDetail = (id) => {
-    return getPostById(id);
-  };
-
-  const deleteHandler = (id) => {
-    return deletePost(id);
+  console.log('id check', id);
+  const getPostDetail = async (id) => {
+    return await getPostById(id);
   };
 
   return (
@@ -26,7 +25,6 @@ export default function PostCard({ title, description, user_id, id }) {
           <button onClick={() => getPostDetail(id)}>edit</button>
         </Link>
       )}
-      {owner && <button onClick={() => deleteHandler(id)}>delete</button>}
     </div>
   );
 }
