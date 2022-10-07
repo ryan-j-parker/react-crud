@@ -36,26 +36,30 @@ function CreatePost() {
             <h2 className="create">Create a post</h2>
 
             <FormControl className="post-form">
-              <TextField
-                id="outlined-basic"
-                label="Title"
-                variant="outlined"
-                className="title"
-                margin="dense"
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-              ></TextField>
-              <TextField
-                id="outlined-basic"
-                label="Description"
-                variant="outlined"
-                className="desc"
-                margin="dense"
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              ></TextField>
+              <div className="title-field">
+                <TextField
+                  id="outlined-basic"
+                  label="Title"
+                  variant="outlined"
+                  className="title"
+                  margin="dense"
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                ></TextField>
+              </div>
+              <div className="desc-field">
+                <TextField
+                  id="outlined-basic"
+                  label="Description"
+                  variant="outlined"
+                  className="desc"
+                  margin="dense"
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                  }}
+                ></TextField>
+              </div>
               <div className="button-div">
                 <Link to="/posts">
                   <Button
