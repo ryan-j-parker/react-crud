@@ -9,12 +9,13 @@
 
 .create {
   margin-top: -30px;
-  color: #64b2cd;
+  color: #73d6f7;
 }
 
 .create-post {
   display: flex;
   flex-direction: column;
+  z-index: 3;
 }
 
 label {
