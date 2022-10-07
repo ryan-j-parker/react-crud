@@ -23,7 +23,6 @@ export default function PostList() {
     );
 
   return (
-
     <div className="posts-body">
       <div className="main-posts">
         {posts.map((post) => (
@@ -32,11 +31,10 @@ export default function PostList() {
             title={post.title}
             description={post.description}
             user_id={post.user_id}
+            id={post.id}
           />
         ))}
       </div>
-
-   
     </div>
   );
 }

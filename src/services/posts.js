@@ -19,7 +19,7 @@ export async function editPost(title, description, id) {
 }
 
 export async function getPostById(id) {
-  const response = await client.from('posts').match({ id }).single();
+  const response = await client.from('posts').select('*').match({ id }).single();
 
   return checkError(response);
 }
