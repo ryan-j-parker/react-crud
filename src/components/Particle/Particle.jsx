@@ -5,9 +5,11 @@ import { loadFull } from 'tsparticles';
 function Particle() {
   const particlesInit = async (main) => {
     await loadFull(main);
+    // eslint-disable-next-line no-console
     console.log(main);
   };
   const particlesLoaded = (container) => {
+    // eslint-disable-next-line no-console
     console.log(container);
   };
   return (
