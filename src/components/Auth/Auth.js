@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import InputAdornment from '@mui/material/InputAdornment';
+import Particle from '../Particle/Particle';
 
 function Auth() {
   const { type } = useParams();
@@ -31,6 +32,7 @@ function Auth() {
   return (
     <div className="auth-body">
       <div className="main-auth">
+        <Particle style={{ zIndex: 1 }} />
         <Box
           className="box"
           sx={{
@@ -40,6 +42,8 @@ function Auth() {
             pt: 2,
             minWidth: 350,
             minHeight: 400,
+            opacity: 1,
+            zIndex: 9999,
           }}
         >
           <div className="links-container">

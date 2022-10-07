@@ -6,6 +6,7 @@ import PostList from './components/PostList/PostList';
 import CreatePost from './components/CreatePost/CreatePost';
 import Footer from './components/Footer/Footer';
 import EditPost from './components/EditPost/EditPost';
+import Particle from './components/Particle/Particle';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/auth/:type" component={Auth} />
+        <Route path="/particle" component={Particle} />
         <Route path="/posts" component={PostList} />
         <Route path="/create-post" component={CreatePost} />
         <Route path="/edit-post/:id" component={EditPost} />

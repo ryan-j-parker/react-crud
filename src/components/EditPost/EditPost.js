@@ -10,6 +10,7 @@ import { deletePost, editPost } from '../../services/posts';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import usePost from '../../hooks/usePost';
+import Particle from '../Particle/Particle';
 
 export default function EditPost() {
   const [newTitle, setNewTitle] = useState('');
@@ -29,6 +30,7 @@ export default function EditPost() {
   return (
     <>
       <div className="container">
+        <Particle />
         <div className="edit-post">
           <Box
             className="box"
@@ -39,6 +41,8 @@ export default function EditPost() {
               pt: 2,
               minWidth: 300,
               minHeight: 340,
+              opacity: 1,
+              zIndex: 9999,
             }}
           >
             <h2 className="create">Edit post</h2>
