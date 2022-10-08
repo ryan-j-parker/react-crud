@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './CreateProfile.css';
 import TextField from '@mui/material/TextField';
@@ -10,19 +10,26 @@ import Particle from '../Particle/Particle';
 import Avatar from '@mui/material/Avatar';
 import { createProfile, uploadProfileImage } from '../../services/profiles';
 import { Button } from '@mui/material';
+import { UserContext } from '../../context/UserContext';
 
 export default function CreateProfile() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUserName] = useState('');
   const [imageFile, setImageFile] = useState('');
+  const [imageName, setImageName] = useState('');
+  // const [avatarUrl, setAvatarUrl] = useState('');
+
+  const { user } = useContext(UserContext);
 
   const handleCreateProfile = async () => {
     await createProfile(firstName, lastName, username);
   };
 
   const handleUpload = async () => {
-    await uploadProfileImage(imageFile);
+    setImageName(`${user.id}/${imageFile.name}}`);
+    const response = await uploadProfileImage(imageName, imageFile);
+    console.log(response);
   };
 
   return (
@@ -90,7 +97,14 @@ export default function CreateProfile() {
             <Box className="button-box">
               <div className="toggle-sign-up">
                 <NavLink to="/postlist">
-                  <Button onClick={handleCreateProfile}>Submit</Button>
+                  <Button
+                    onClick={(e) => {
+                      handleCreateProfile(e);
+                      handleUpload(e);
+                    }}
+                  >
+                    Submit
+                  </Button>
                 </NavLink>
               </div>
             </Box>
