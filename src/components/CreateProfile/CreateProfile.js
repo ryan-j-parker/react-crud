@@ -18,7 +18,7 @@ export default function CreateProfile() {
   const [username, setUserName] = useState('');
   const [imageFile, setImageFile] = useState('');
   const [imageName, setImageName] = useState('');
-  // const [avatarUrl, setAvatarUrl] = useState('');
+  console.log(imageFile);
 
   const { user } = useContext(UserContext);
 
@@ -28,7 +28,7 @@ export default function CreateProfile() {
 
   const handleUpload = async () => {
     setImageName(`${user.id}/${imageFile.name}}`);
-    const response = await uploadProfileImage(imageName, imageFile);
+    const response = await uploadProfileImage(imageName, imageFile[0]);
     console.log(response);
   };
 
@@ -56,9 +56,9 @@ export default function CreateProfile() {
                 className="photo-input"
                 type="file"
                 accept="image/*"
-                onChange={(e) => setImageFile(e.target.value)}
+                onChange={(e) => setImageFile(e.target.value.files[0].name)}
               ></input>
-              <Avatar src="*" sx={{ width: 75, height: 75 }} />
+              <Avatar src={imageFile} sx={{ width: 75, height: 75 }} />
             </div>
 
             <div className="input-icons">

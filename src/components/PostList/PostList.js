@@ -7,6 +7,7 @@ import PostCard from '../PostCard/PostCard';
 import './PostList.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Particle from '../Particle/Particle';
+import ProfileDisplay from '../ProfileDisplay/ProfileDisplay';
 
 export default function PostList() {
   const { posts, loading } = usePosts();
@@ -29,16 +30,21 @@ export default function PostList() {
         <Particle />
       </div>
       <div className="posts-body">
-        <div className="main-posts">
-          {posts.map((post) => (
-            <PostCard
-              key={post.id}
-              title={post.title}
-              description={post.description}
-              user_id={post.user_id}
-              id={post.id}
-            />
-          ))}
+        <div className="profile-section">
+          <ProfileDisplay />
+        </div>
+        <div className="posts-container">
+          <div className="main-posts">
+            {posts.map((post) => (
+              <PostCard
+                key={post.id}
+                title={post.title}
+                description={post.description}
+                user_id={post.user_id}
+                id={post.id}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

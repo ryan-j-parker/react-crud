@@ -1,8 +1,6 @@
 import { client, checkError } from './client';
 const REACT_APP_SUPABASE_URL = 'https://juukelwfynjorlxlrltv.supabase.co';
 
-// const REACT_APP_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1dWtlbHdmeW5qb3JseGxybHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjI1ODk4MzgsImV4cCI6MTk3ODE2NTgzOH0.5et5I4mHWEi7JTbmOnUz3_07wqlBoT0P8KZy0sSaOzU';
-
 export async function createProfile(firstName, lastName, username) {
   const response = await client
     .from('profiles')

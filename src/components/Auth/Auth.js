@@ -81,7 +81,7 @@ function Auth() {
               ></TextField>
             </div>
             <Box className="button-box">
-              <NavLink to="/auth/sign-in">
+              <NavLink to="/create-profile">
                 <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
                   Sign in
                 </Button>
