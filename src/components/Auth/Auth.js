@@ -63,7 +63,7 @@ function Auth() {
               <PersonIcon className="icon"></PersonIcon>
               <TextField
                 className="email-input"
-                startAdornment={
+                startadornment={
                   <InputAdornment>
                     <PersonIcon></PersonIcon>
                   </InputAdornment>

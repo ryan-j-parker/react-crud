@@ -37,21 +37,21 @@ const newPost = [
 
 ];
 
-test('users see dev pal text', () => {
-  render(
-    <UserProvider>
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    </UserProvider>
-  );
+// test('users see dev pal text', () => {
+//   render(
+//     <UserProvider>
+//       <MemoryRouter>
+//         <App />
+//       </MemoryRouter>
+//     </UserProvider>
+//   );
 
-  const text = screen.getByText(/devPal/i);
-  expect(text).toBeInTheDocument();
-});
+//   const text = screen.getByText(/devPal/i);
+//   expect(text).toBeInTheDocument();
+// });
 
 
-test('user can sign in', async () => {
+test('user can sign in', () => {
   authFns.getUser.mockReturnValue(null);
   authFns.authUser.mockReturnValue(mockUser);
 
@@ -88,7 +88,7 @@ test('signed in users should see all posts', async () => {
   await screen.findByText(/Fake Post #2/i);
 });
 
-test('users can add a post', async () => {
+test('users can add a post', () => {
   authFns.getUser.mockReturnValue(mockUser);
   postFns.createPost.mockReturnValue(newPost.title, newPost.description);
   render(
