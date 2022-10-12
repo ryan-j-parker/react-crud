@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
-import InputAdornment from '@mui/material/InputAdornment';
+// import InputAdornment from '@mui/material/InputAdornment';
 import Particle from '../Particle/Particle';
 
 function Auth() {
@@ -63,11 +63,11 @@ function Auth() {
               <PersonIcon className="icon"></PersonIcon>
               <TextField
                 className="email-input"
-                startadornment={
-                  <InputAdornment>
-                    <PersonIcon></PersonIcon>
-                  </InputAdornment>
-                }
+                // startadornment={
+                //   <InputAdornment>
+                //     <PersonIcon></PersonIcon>
+                //   </InputAdornment>
+                // }
                 label="Email"
                 autoComplete="on"
                 margin="dense"
