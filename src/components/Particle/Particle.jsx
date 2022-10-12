@@ -1,10 +1,11 @@
 import { Particles } from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+// eslint-disable-next-line no-console
+// import { loadFull } from 'tsparticles';
 // import { tsParticles } from 'tsparticles-engine';
 
 function Particle() {
   const particlesInit = async (main) => {
-    await loadFull(main);
+    // await loadFull(main);
     // eslint-disable-next-line no-console
     console.log(main);
   };
