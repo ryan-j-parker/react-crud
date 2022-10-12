@@ -33,21 +33,7 @@ const newPost = [
   },
 ];
 
-test('user sees a button', () => {
-  render(
-    <UserProvider>
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    </UserProvider>
-  );
-  screen.debug();
-
-  const text = screen.getByText(/devPal/i);
-  expect(text).toBeInTheDocument();
-});
-
-test('user can sign in', async () => {
+test('user can sign in', () => {
   authFns.getUser.mockReturnValue(null);
   authFns.authUser.mockReturnValue(mockUser);
   render(
@@ -81,7 +67,7 @@ test('signed in users should see a list of posts at /posts', async () => {
   await screen.findByText(/Fake Post #2/i);
 });
 
-test('user can create a post', async () => {
+test('user can create a post', () => {
   authFns.getUser.mockReturnValue(mockUser);
   postFns.createPost.mockReturnValue(newPost.title, newPost.description);
   render(

@@ -1,4 +1,5 @@
 import { Particles } from 'react-tsparticles';
+// eslint-disable-next-line no-console
 import { loadFull } from 'tsparticles';
 // import { tsParticles } from 'tsparticles-engine';
 
