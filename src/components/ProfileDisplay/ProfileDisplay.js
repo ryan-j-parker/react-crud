@@ -7,12 +7,12 @@ import { UserContext } from '../../context/UserContext';
 
 export default function ProfileDisplay() {
   const [profileName, setProfileName] = useState('');
-
+  const [profileAvatar, setProfileAvatar] = useState('');
   const { user } = useContext(UserContext);
 
   const loadProfile = async () => {
     const resp = await getProfile(user.id);
-
+    setProfileAvatar(resp.avatar_url);
     setProfileName(`${resp.first_name} ${resp.last_name}`);
   };
 
@@ -33,7 +33,7 @@ export default function ProfileDisplay() {
       >
         <div className="profile-container">
           <div className="photo-container">
-            <Avatar src="*" sx={{ width: 100, height: 100 }} />
+            <Avatar src={profileAvatar} sx={{ width: 200, height: 200 }} />
           </div>
 
           <div className="profile-data">

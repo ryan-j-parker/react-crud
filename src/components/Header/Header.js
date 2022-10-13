@@ -7,15 +7,13 @@ import { getProfile } from '../../services/profiles';
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
-  const [username, setUserName] = useState('');
+  // const [username, setUserName] = useState('');
 
-  const loadUsername = async () => {
-    const resp = await getProfile(user.id);
+  // const loadUsername = async () => {
+  //   const resp = await getProfile(user.id);
 
-    setUserName(`${resp.username}`);
-  };
-
-  loadUsername();
+  //   setUserName(`${resp.username}`);
+  // };
 
   const handleSignOut = async () => {
     await signOut();
@@ -29,9 +27,9 @@ function Header() {
           <h2>devPal</h2>
         </Link>
       </div>
-      <div className="greeting">
+      {/* <div className="greeting">
         <h3>Hello {username}!</h3>
-      </div>
+      </div> */}
       <div className="nav">
         {user && (
           <Link to="/create-post" className="nav-link">

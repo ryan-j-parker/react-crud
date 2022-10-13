@@ -17,19 +17,24 @@ export default function CreateProfile() {
   const [lastName, setLastName] = useState('');
   const [username, setUserName] = useState('');
   const [imageFile, setImageFile] = useState('');
-  const [imageName, setImageName] = useState('');
-  console.log(imageFile);
+  // const [imagePath, setImagePath] = useState('');
+  // console.log(imageFile);
 
   const { user } = useContext(UserContext);
 
-  const handleCreateProfile = async () => {
-    await createProfile(firstName, lastName, username);
-  };
+  // const handleCreateProfile = async () => {
+  //   await createProfile(firstName, lastName, username);
+  // };
 
-  const handleUpload = async () => {
-    setImageName(`${user.id}/${imageFile.name}}`);
-    const response = await uploadProfileImage(imageName, imageFile[0]);
-    console.log(response);
+  const handleCreateProfile = async () => {
+    let url = null;
+    if (imageFile.name) {
+      const randomFolder = Math.floor(Date.now() * Math.random());
+      const imagePath = `profile-pictures/${randomFolder}/${imageFile.name}`;
+      console.log(imagePath);
+      url = await uploadProfileImage(imagePath, imageFile);
+    }
+    await createProfile(firstName, lastName, username, url);
   };
 
   return (
@@ -49,66 +54,72 @@ export default function CreateProfile() {
             zIndex: 9999,
           }}
         >
-          <FormControl className="input-form">
-            <div className="photo-container">
-              <label>Add Profile photo:</label>
-              <input
-                className="photo-input"
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImageFile(e.target.value.files[0].name)}
-              ></input>
-              <Avatar src={imageFile} sx={{ width: 75, height: 75 }} />
-            </div>
-
-            <div className="input-icons">
-              <TextField
-                className="first-name-input"
-                label="First name"
-                margin="dense"
-                value={firstName}
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                }}
-              ></TextField>
-            </div>
-            <div className="input-icons">
-              <TextField
-                className="last-name-input"
-                label="Last name"
-                margin="dense"
-                value={lastName}
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                }}
-              ></TextField>
-            </div>
-            <div className="input-icons">
-              <TextField
-                className="username-input"
-                label="Username"
-                margin="dense"
-                value={username}
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
-              ></TextField>
-            </div>
-            <Box className="button-box">
-              <div className="toggle-sign-up">
-                <NavLink to="/postlist">
-                  <Button
-                    onClick={(e) => {
-                      handleCreateProfile(e);
-                      handleUpload(e);
-                    }}
-                  >
-                    Submit
-                  </Button>
-                </NavLink>
+          <form>
+            <FormControl className="input-form">
+              <div className="photo-container">
+                <label>Add Profile photo:</label>
+                <input
+                  className="photo-input"
+                  name="image"
+                  type="file"
+                  accept="*/"
+                  onChange={(e) => {
+                    setImageFile(e.target.files[0]);
+                  }}
+                ></input>
+                <Avatar src={require('./avatar-placeholder.webp')} sx={{ width: 75, height: 75 }} />
               </div>
-            </Box>
-          </FormControl>
+
+              <div className="input-icons">
+                <TextField
+                  className="first-name-input"
+                  label="First name"
+                  margin="dense"
+                  value={firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                    console.log(firstName);
+                  }}
+                ></TextField>
+              </div>
+              <div className="input-icons">
+                <TextField
+                  className="last-name-input"
+                  label="Last name"
+                  margin="dense"
+                  value={lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                    console.log(lastName);
+                  }}
+                ></TextField>
+              </div>
+              <div className="input-icons">
+                <TextField
+                  className="username-input"
+                  label="Username"
+                  margin="dense"
+                  value={username}
+                  onChange={(e) => {
+                    setUserName(e.target.value);
+                  }}
+                ></TextField>
+              </div>
+              <Box className="button-box">
+                <div className="toggle-sign-up">
+                  <NavLink to="/postlist">
+                    <Button
+                      onClick={() => {
+                        handleCreateProfile();
+                      }}
+                    >
+                      Create Profile
+                    </Button>
+                  </NavLink>
+                </div>
+              </Box>
+            </FormControl>
+          </form>
         </Box>
       </div>
     </div>

@@ -12,6 +12,11 @@ import ProfileDisplay from '../ProfileDisplay/ProfileDisplay';
 export default function PostList() {
   const { posts, loading } = usePosts();
   const { user } = useContext(UserContext);
+  const [userProfile, setUserProfile] = useState('');
+
+  const getProfile = async () => {
+    const userName = await getProfile()
+  }
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
@@ -42,6 +47,7 @@ export default function PostList() {
                 description={post.description}
                 user_id={post.user_id}
                 id={post.id}
+                username={}
               />
             ))}
           </div>

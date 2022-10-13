@@ -5,11 +5,8 @@ import { loadFull } from 'tsparticles';
 function Particle() {
   const particlesInit = async (main) => {
     await loadFull(main);
-    console.log(main);
   };
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  const particlesLoaded = (container) => {};
   return (
     <Particles
       id="tsparticles"

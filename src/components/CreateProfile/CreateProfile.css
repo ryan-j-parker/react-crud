@@ -24,7 +24,8 @@
 .box {
   display: flex;
   justify-content: center;
-  height: 42vh;
+  align-items: center;
+  height: 50vh;
   width: 25vh;
   border-radius: 10px;
   background-color: rgb(223, 246, 255);
@@ -45,10 +46,10 @@
   font-family: 'Anonymous Pro', monospace;
 }
 
-/* .photo-input {
+.photo-input {
   color: rgba(0, 0, 0, 0);
-  margin-left: 12.5vh;
-} */
+  margin-left: 15vh;
+}
 
 .first-name-input {
   margin: 20px;

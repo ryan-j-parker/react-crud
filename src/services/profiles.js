@@ -1,10 +1,10 @@
 import { client, checkError } from './client';
 const REACT_APP_SUPABASE_URL = 'https://juukelwfynjorlxlrltv.supabase.co';
 
-export async function createProfile(firstName, lastName, username) {
+export async function createProfile(firstName, lastName, username, url) {
   const response = await client
     .from('profiles')
-    .insert({ first_name: firstName, last_name: lastName, username: username });
+    .insert({ first_name: firstName, last_name: lastName, username: username, avatar_url: url });
 
   return checkError(response);
 }
@@ -15,15 +15,17 @@ export async function getProfile(id) {
   return checkError(response);
 }
 
-export async function uploadProfileImage(imageFile, imageName) {
+export async function uploadProfileImage(imagePath, imageFile) {
   const bucket = await client.storage.from('avatars');
-  const response = await bucket.upload(imageName, imageFile, {
+  const response = await bucket.upload(imagePath, imageFile, {
     cacheControl: '3600',
     upsert: true,
   });
+
   if (response.error) {
     return null;
   }
   const url = `${REACT_APP_SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
   return url;
 }
