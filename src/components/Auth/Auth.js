@@ -58,45 +58,57 @@ function Auth() {
               </Button>
             </NavLink>
           </div>
-          <FormControl className="input-form">
+          <form className="input-form">
             <div className="input-icons">
-              <PersonIcon className="icon"></PersonIcon>
-              <TextField
+              {/* <PersonIcon className="icon"></PersonIcon> */}
+              <label htmlFor="email">Email:</label>
+              <input
                 className="email-input"
-                startAdornment={
-                  <InputAdornment>
-                    <PersonIcon></PersonIcon>
-                  </InputAdornment>
-                }
-                label="Email"
-                autoComplete="on"
-                margin="dense"
+                // startAdornment={
+                //   <InputAdornment>
+                //     <PersonIcon></PersonIcon>
+                //   </InputAdornment>
+                // }
+                // name="email"
+                // label="Email"
+                // autoComplete="on"
+                // margin="dense"
+                id="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-              ></TextField>
+              ></input>
             </div>
             <div className="input-icons">
-              <LockIcon className="icon"></LockIcon>
-              <TextField
+              {/* <LockIcon className="icon"></LockIcon> */}
+              <label htmlFor="password">Password:</label>
+              <input
                 className="password-input"
-                label="Password"
-                autoComplete="on"
-                margin="dense"
+                name="password"
+                id="password"
+                // label="Password"
+                // autoComplete="on"
+                // margin="dense"
                 value={password}
                 type="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-              ></TextField>
+              ></input>
             </div>
             <Box className="button-box">
-              <Button mt={2} variant="contained" className="auth-btn" onClick={submitAuth}>
+              <button
+                name="submit"
+                // mt={2}
+                // variant="contained"
+                className="auth-btn"
+                onClick={submitAuth}
+              >
                 Submit
-              </Button>
+              </button>
             </Box>
-          </FormControl>
+          </form>
         </Box>
       </div>
     </div>
