@@ -5,8 +5,10 @@ export async function getPosts() {
   return checkError(response);
 }
 
-export async function createPost(title, description) {
-  const response = await client.from('posts').insert({ title: title, description: description });
+export async function createPost(title, description, username) {
+  const response = await client
+    .from('posts')
+    .insert({ title: title, description: description, username: username });
   return checkError(response);
 }
 

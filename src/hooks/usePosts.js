@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useState } from 'react';
-
+import { deletePost } from '../services/posts';
 import { getPosts } from '../services/posts';
 
 function usePosts() {
@@ -23,7 +23,11 @@ function usePosts() {
     };
     loadData();
   }, []);
-  return { posts, loading, error };
+  const handleDeletePost = async (id) => {
+    await deletePost(id);
+    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+  };
+  return { posts, loading, error, handleDeletePost };
 }
 
 export default usePosts;

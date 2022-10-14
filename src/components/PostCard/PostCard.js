@@ -1,30 +1,37 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import { deletePost, getPostById } from '../../services/posts';
-import './PostCard.css';
-import usePost from '../../hooks/usePost';
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import usePosts from '../../hooks/usePosts';
 
-export default function PostCard({ title, description, user_id, id }) {
+import './PostCard.css';
+
+export default function PostCard({ title, description, user_id, id, username, deletePost }) {
   const { user } = useContext(UserContext);
-  const { post } = usePost(id);
-  console.log('post!!', post);
 
   const owner = user.id === user_id;
-  console.log('id check', id);
-  const getPostDetail = async (id) => {
-    return await getPostById(id);
-  };
 
   return (
     <div className="post-card">
-      <h3 className="post-title">{title}</h3>
-      <p className="description">{description}</p>
-      {owner && (
-        <Link to={`/edit-post/${id}`}>
-          <button onClick={() => getPostDetail(id)}>edit</button>
-        </Link>
-      )}
+      <div className="user-select">
+        <h3 className="username-display">{username}</h3>
+        {owner && (
+          <Select>
+            <MenuItem value={'edit'}>
+              <Link to={`/edit-post/${id}`}>Edit</Link>
+            </MenuItem>
+            <MenuItem onClick={() => deletePost(id)}>Delete</MenuItem>
+          </Select>
+        )}
+      </div>
+      <div className="post-content">
+        <h3 className="post-title">{title}</h3>
+        <p className="post-description">{description}</p>
+      </div>
+
+      <TextField label="Add a comment..."></TextField>
     </div>
   );
 }

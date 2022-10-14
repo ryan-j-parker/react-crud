@@ -7,6 +7,7 @@ import CreatePost from './components/CreatePost/CreatePost';
 import Footer from './components/Footer/Footer';
 import EditPost from './components/EditPost/EditPost';
 import Particle from './components/Particle/Particle';
+import CreateProfile from './components/CreateProfile/CreateProfile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/auth/:type" component={Auth} />
+        <Route path="/create-profile" component={CreateProfile} />
         <Route path="/particle" component={Particle} />
         <Route path="/posts" component={PostList} />
         <Route path="/create-post" component={CreatePost} />
