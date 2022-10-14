@@ -8,13 +8,16 @@ import FormControl from '@mui/material/FormControl';
 import SendIcon from '@mui/icons-material/Send';
 import { Link } from 'react-router-dom';
 import Particle from '../Particle/Particle';
+import useProfile from '../../hooks/useProfile';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const { profile } = useProfile();
+  console.log(profile);
 
   const makePost = async () => {
-    await createPost(title, description);
+    await createPost(title, description, profile.username);
   };
 
   return (

@@ -89,7 +89,7 @@ function Auth() {
               <div className="toggle-sign-up">
                 <p>{signInQ}</p>
                 <NavLink to="/auth/sign-up">
-                  <h3 onClick={submitAuth}>Sign up</h3>
+                  <h3>Sign up</h3>
                 </NavLink>
               </div>
             </Box>

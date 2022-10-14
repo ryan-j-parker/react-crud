@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-import { getPosts } from '../services/posts';
+import { getProfiles } from '../services/profiles';
 
-function usePosts() {
-  const [posts, setPosts] = useState([]);
+function useProfiles() {
+  const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -12,9 +12,9 @@ function usePosts() {
     const loadData = async () => {
       setLoading(true);
       try {
-        const data = await getPosts();
+        const data = await getProfiles();
 
-        setPosts(data);
+        setProfiles(data);
         setLoading(false);
       } catch (e) {
         setError(e.message);
@@ -23,7 +23,7 @@ function usePosts() {
     };
     loadData();
   }, []);
-  return { posts, loading, error };
+  return { profiles, loading, error };
 }
 
-export default usePosts;
+export default useProfiles;

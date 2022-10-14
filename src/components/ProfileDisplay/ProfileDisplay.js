@@ -1,22 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Box } from '@mui/system';
 import { Avatar } from '@mui/material';
-import { getProfile } from '../../services/profiles';
+import { getProfileById } from '../../services/profiles';
 import './ProfileDisplay.css';
 import { UserContext } from '../../context/UserContext';
+import useAvatar from '../../hooks/useAvatar';
+import useProfile from '../../hooks/useProfile';
 
-export default function ProfileDisplay() {
-  const [profileName, setProfileName] = useState('');
-  const [profileAvatar, setProfileAvatar] = useState('');
-  const { user } = useContext(UserContext);
+export default function ProfileDisplay({ profile, loading }) {
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
-  const loadProfile = async () => {
-    const resp = await getProfile(user.id);
-    setProfileAvatar(resp.avatar_url);
-    setProfileName(`${resp.first_name} ${resp.last_name}`);
-  };
-
-  loadProfile();
   return (
     <div className="main-profile-display">
       <Box
@@ -33,12 +28,12 @@ export default function ProfileDisplay() {
       >
         <div className="profile-container">
           <div className="photo-container">
-            <Avatar src={profileAvatar} sx={{ width: 200, height: 200 }} />
+            <Avatar src={profile.avatar_url} sx={{ width: 200, height: 200 }} />
           </div>
 
           <div className="profile-data">
             <div>
-              <p>{profileName}</p>
+              <p>{profile.username}</p>
             </div>
           </div>
         </div>

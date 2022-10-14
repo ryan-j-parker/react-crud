@@ -1,40 +1,44 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './CreateProfile.css';
 import TextField from '@mui/material/TextField';
 // import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
-
+import useAvatar from '../../hooks/useAvatar';
 import Particle from '../Particle/Particle';
 import Avatar from '@mui/material/Avatar';
-import { createProfile, uploadProfileImage } from '../../services/profiles';
+import { createProfile, getProfileById, uploadProfileImage } from '../../services/profiles';
 import { Button } from '@mui/material';
 import { UserContext } from '../../context/UserContext';
+import useProfile from '../../hooks/useProfile';
+import { useHistory } from 'react-router-dom';
 
 export default function CreateProfile() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUserName] = useState('');
   const [imageFile, setImageFile] = useState('');
-  // const [imagePath, setImagePath] = useState('');
-  // console.log(imageFile);
+  const history = useHistory();
+
+  const imageRef = useRef(null);
 
   const { user } = useContext(UserContext);
+  const { setProfile, profile } = useProfile();
 
-  // const handleCreateProfile = async () => {
-  //   await createProfile(firstName, lastName, username);
-  // };
+  const { result, uploader } = useAvatar();
 
   const handleCreateProfile = async () => {
     let url = null;
     if (imageFile.name) {
       const randomFolder = Math.floor(Date.now() * Math.random());
       const imagePath = `profile-pictures/${randomFolder}/${imageFile.name}`;
-      console.log(imagePath);
+
       url = await uploadProfileImage(imagePath, imageFile);
     }
     await createProfile(firstName, lastName, username, url);
+    const prof = await getProfileById(user.id);
+    history.push('/posts');
   };
 
   return (
@@ -65,9 +69,10 @@ export default function CreateProfile() {
                   accept="*/"
                   onChange={(e) => {
                     setImageFile(e.target.files[0]);
+                    uploader(e);
                   }}
                 ></input>
-                <Avatar src={require('./avatar-placeholder.webp')} sx={{ width: 75, height: 75 }} />
+                <Avatar src={result} ref={imageRef} sx={{ width: 100, height: 100 }} />
               </div>
 
               <div className="input-icons">
@@ -78,7 +83,6 @@ export default function CreateProfile() {
                   value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
-                    console.log(firstName);
                   }}
                 ></TextField>
               </div>
@@ -90,7 +94,6 @@ export default function CreateProfile() {
                   value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
-                    console.log(lastName);
                   }}
                 ></TextField>
               </div>
@@ -107,15 +110,7 @@ export default function CreateProfile() {
               </div>
               <Box className="button-box">
                 <div className="toggle-sign-up">
-                  <NavLink to="/postlist">
-                    <Button
-                      onClick={() => {
-                        handleCreateProfile();
-                      }}
-                    >
-                      Create Profile
-                    </Button>
-                  </NavLink>
+                  <Button onClick={handleCreateProfile}>Create Profile</Button>
                 </div>
               </Box>
             </FormControl>

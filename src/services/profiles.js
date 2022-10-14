@@ -9,8 +9,14 @@ export async function createProfile(firstName, lastName, username, url) {
   return checkError(response);
 }
 
-export async function getProfile(id) {
+export async function getProfileById(id) {
   const response = await client.from('profiles').select('*').match({ id }).single();
+
+  return checkError(response);
+}
+
+export async function getProfiles() {
+  const response = await client.from('profiles').select('*');
 
   return checkError(response);
 }

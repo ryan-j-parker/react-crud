@@ -48,7 +48,7 @@
 
 .photo-input {
   color: rgba(0, 0, 0, 0);
-  margin-left: 15vh;
+  margin-left: 14vh;
 }
 
 .first-name-input {
@@ -74,12 +74,12 @@
   gap: 1vh;
 }
 
-p {
+/* p {
   margin: 10px;
   position: relative;
   top: 0;
   left: 0;
-}
+} */
 
 .button-box {
   margin-top: 25px;

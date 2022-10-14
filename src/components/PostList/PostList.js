@@ -8,15 +8,12 @@ import './PostList.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Particle from '../Particle/Particle';
 import ProfileDisplay from '../ProfileDisplay/ProfileDisplay';
+import useProfile from '../../hooks/useProfile';
 
 export default function PostList() {
-  const { posts, loading } = usePosts();
+  const { posts, loading, handleDeletePost } = usePosts();
   const { user } = useContext(UserContext);
-  const [userProfile, setUserProfile] = useState('');
-
-  const getProfile = async () => {
-    const userName = await getProfile()
-  }
+  const { profile, profLoading } = useProfile();
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
@@ -36,7 +33,7 @@ export default function PostList() {
       </div>
       <div className="posts-body">
         <div className="profile-section">
-          <ProfileDisplay />
+          <ProfileDisplay profile={profile} loading={profLoading} />
         </div>
         <div className="posts-container">
           <div className="main-posts">
@@ -47,7 +44,8 @@ export default function PostList() {
                 description={post.description}
                 user_id={post.user_id}
                 id={post.id}
-                username={}
+                username={post.username}
+                deletePost={handleDeletePost}
               />
             ))}
           </div>

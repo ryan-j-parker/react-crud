@@ -1,52 +1,37 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import { getPostById, getPosts } from '../../services/posts';
-import { getProfile } from '../../services/profiles';
-import './PostCard.css';
-// import usePost from '../../hooks/usePost';
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import usePosts from '../../hooks/usePosts';
 
-export default function PostCard({ title, description, user_id, id }) {
+import './PostCard.css';
+
+export default function PostCard({ title, description, user_id, id, username, deletePost }) {
   const { user } = useContext(UserContext);
 
   const owner = user.id === user_id;
 
-  const getPostDetail = async (id) => {
-    const resp = await getPostById(id);
-    console.log('post detail', resp);
-    return resp;
-  };
-
-  // const setPosterName = async () => {
-  //   const singlePost = await getPostById(id);
-  //   const resp = await getPosts();
-  //   console.log(resp);
-  //   resp.map((post) => {
-  //     if (post.user_id === singlePost.user_id) {
-  //       return post.user_id;
-
-  //     }
-  //   });
-  // };
-  const handleProfile = async () => {
-    const profile = await getProfile(user_id);
-    console.log(profile);
-  };
-
-  handleProfile();
-
   return (
     <div className="post-card">
-      <div className="posted-by">
-        <h3></h3>
+      <div className="user-select">
+        <h3 className="username-display">{username}</h3>
+        {owner && (
+          <Select>
+            <MenuItem value={'edit'}>
+              <Link to={`/edit-post/${id}`}>Edit</Link>
+            </MenuItem>
+            <MenuItem onClick={() => deletePost(id)}>Delete</MenuItem>
+          </Select>
+        )}
       </div>
-      <h3 className="post-title">{title}</h3>
-      <p className="description">{description}</p>
-      {owner && (
-        <Link to={`/edit-post/${id}`}>
-          <button onClick={() => getPostDetail(id)}>edit</button>
-        </Link>
-      )}
+      <div className="post-content">
+        <h3 className="post-title">{title}</h3>
+        <p className="post-description">{description}</p>
+      </div>
+
+      <TextField label="Add a comment..."></TextField>
     </div>
   );
 }
