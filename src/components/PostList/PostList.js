@@ -46,6 +46,7 @@ export default function PostList() {
                 id={post.id}
                 username={post.username}
                 deletePost={handleDeletePost}
+                profile={profile}
               />
             ))}
           </div>

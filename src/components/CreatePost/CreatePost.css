@@ -30,6 +30,7 @@ label {
 .desc {
   width: 280px;
   background-color: white;
+  border-radius: 10px;
 }
 
 .post-form {
@@ -40,4 +41,18 @@ label {
 
 .button-div {
   margin-top: 40px;
+}
+
+.create-post-box {
+  display: flex;
+  justify-content: center;
+  height: 32vh;
+  width: 25vh;
+  border-radius: 10px;
+  background-color: rgb(223, 246, 255);
+  flex-direction: column;
+  font-family: 'Anonymous Pro', monospace;
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.75);
 }

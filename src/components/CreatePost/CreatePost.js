@@ -26,9 +26,9 @@ function CreatePost() {
         <Particle />
         <div className="create-post">
           <Box
-            className="box"
+            className="create-post-box"
             sx={{
-              bgcolor: '#256D85',
+              bgcolor: 'rgb(223, 246, 255)',
               boxShadow: 1,
               borderRadius: 2,
               pt: 2,
